@@ -1,3 +1,17 @@
 {
-  "app": "npx ts-node bin/rds.ts"
+  "app": "npx ts-node bin/rds.ts",
+  "context": {
+    "rds.masterUsername": "natalie",
+    "rds.databaseName": "mariaTestDB",
+    "rds.Port": 3306,
+    "rds.BackupRetentionPeriod": 7,
+    "rds.DBInstanceClass":,
+    "rds.DBInstanceClassIdentifier": "maria_instance" ,
+    "rds.AutoMinorVersionUpgrade": true,
+    "rds.monitoringIntervals": 60,
+    "rds.storageEncrypted": true,
+    "rds.multiAZ": true,
+    "rds.enablePerformanceInsights": true,
+    "rds."
+  }
 }
