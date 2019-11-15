@@ -27,7 +27,20 @@ export class RdsStack extends cdk.Stack {
     else
       this.vpc = ec2.Vpc.fromLookup(this, "DBTestVPC", {
         vpcName: "DBTestVPCStack/DBTestVPC"
-      });
+    });
 
+    const instance = new rds.DatabaseInstance(this, "RDSInstance", {
+      instanceIdentifier: dbInstanceIdentifier,
+      masterUsername: masterUsername,
+      databaseName: databaseName,
+      availabilityZone: availabilityZone,
+      autoMinorVersionUpgrade: autoMinorVersionUpgrade,
+      storageEncrypted: storageEncrypted,
+      storageType: rds.StorageType.IO1,
+      instanceClass: ec2.InstanceType.of(ec2.InstanceClass.BURSTABLE2, ec2.InstanceSize.SMALL),
+      monitoringInterval: monitoringInterval,
+      engine: rds.DatabaseInstanceEngine.MARIADB
+
+    })
   }
 }
